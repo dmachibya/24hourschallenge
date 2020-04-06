@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    #svg1 {
+        margin: 10em;
+    }
+    .line1 {
+        /* stroke-dasharray: 30;
+        animation: dash 5s linear;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation-fill-mode: forwards; */
+    }
+
+    @keyframes dash {
+        to {
+            stroke-dashoffset: 1000;
+        }
+    }
+    .line-top {
+        width: 100px;
+        height: 5px;
+        background: #000;
+        margin: 5em;
+        position: absolute;
+        transition: all .3s ease;
+    }
+    </style>
+</head>
+<body>
+    <!-- <svg height="210" width="400" id="svg1">
+        <line x1="0" class="line1" y1="0" x2="600" y2="0" stroke="#000000" style="stroke-width: 4">
+            <animate
+                attributeName="stroke-dashoffset"
+                from="53"
+                to="0"
+                dur="2s"
+                fill="free" />
+        </line>
+    </svg> -->
+
+    <div class="line-top" id="line_top"></div>
+
+    <script>
+        var line = document.getElementById("line_top");
+
+        var x = 0;
+        var position = false;
+
+        var counter = setInterval(function(){
+            position = !position;
+            if(position === false){
+                x += 100;
+                line.style.cssText = "left: "+x+"px; background: red";
+            }else 
+            {
+                x -= 100;
+                line.style.cssText = "left: "+x+"px; background: yellow";
+            }
+           
+            
+            //console.log("works");
+        }, 1000)
+
+        //console.log("works");
+
+    </script>
+</body>
+</html>
